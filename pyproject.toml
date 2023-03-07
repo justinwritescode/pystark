@@ -29,14 +29,6 @@ classifiers = [
         'Topic :: Software Development :: Libraries',
         'Topic :: Software Development :: Libraries :: Python Modules'
 ]
-dependencies = [
-    "pyrogram",
-    "TgCrypto",
-    "python-dotenv",
-    "pytz",
-    'sqlalchemy",
-    "psycopg2",
-    "pyyaml"
-]
+
 [project.urls]
 "Homepage" = "https://github.com/justinwritescode/pystark"
