@@ -36,6 +36,8 @@ from pystark.plugins.models.users import Users
 from pystark.helpers.localization import l10n_setup, get_all_langs
 from pystark.decorators.command import command_data
 from pyrogram.errors import ApiIdInvalid, AccessTokenInvalid, AuthKeyDuplicated, AuthKeyUnregistered, UserDeactivated
+from sqlalchemy import create_engine
+
 
 
 __data__ = {"total_plugins": 0, "all_plugins": {}}
@@ -326,7 +328,7 @@ class Stark(Client, Mechanism):
         tables = [Users, Bans]
         for t in tables:
             if t.__tablename__ == name:
-                t.__table__.create(checkfirst=True)
+                t.__table__.create(create_engine(ENV.DATABASE_URL),  checkfirst=True)
                 if name == "users":
                     from pystark.database.sql import Database
                     db = Database()
